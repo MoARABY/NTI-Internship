@@ -15,7 +15,7 @@ async function fetchProductsByCat(category) {
         const response = await fetch("https://fakestoreapi.com/products");
         const products = await response.json();
         const FilterProducts = products.filter(product => product.category === category);
-        console.log(FilterProducts)
+        // console.log(FilterProducts)
 
         // calling addSearch function to set options to select
         addProducts(FilterProducts)
@@ -83,7 +83,7 @@ const addSearch=(products)=>{
         allCategories.push(product.category)
     });
     const categories=new Set(allCategories)
-    console.log(categories)
+    // console.log(categories)
     categories.forEach(category => {
         const option=document.createElement("option")
         option.value=category
@@ -101,7 +101,6 @@ searchBTN.onclick=()=>{
         fetchProducts()
     } else {
         fetchProductsByCat(searchHead.value)
-
     }
 }
 
